@@ -2,6 +2,97 @@ import type { Metadata } from "next";
 import "./globals.css";
 import MainNavigation from "@/components/layouts/MainNavigation";
 import MainFooter from "@/components/layouts/MainFooter";
+import localFont from 'next/font/local'
+
+const IRANSansX = localFont({
+  src: [
+    {
+      path: './fonts/alphabets/IRANSansX-Thin.woff',
+      weight: '100',
+      style: 'normal',
+    },
+    {
+      path: './fonts/alphabets/IRANSansX-UltraLight.woff',
+      weight: '200',
+      style: 'normal',
+    },
+    {
+      path: './fonts/alphabets/IRANSansX-Light.woff',
+      weight: '300',
+      style: 'normal',
+    },
+    {
+      path: './fonts/alphabets/IRANSansX-Regular.woff',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: './fonts/alphabets/IRANSansX-Medium.woff',
+      weight: '500',
+      style: 'normal',
+    },
+    {
+      path: './fonts/alphabets/IRANSansX-DemiBold.woff',
+      weight: '600',
+      style: 'normal',
+    },
+    {
+      path: './fonts/alphabets/IRANSansX-Bold.woff',
+      weight: '700',
+      style: 'normal',
+    },
+    {
+      path: './fonts/alphabets/IRANSansX-ExtraBold.woff',
+      weight: '800',
+      style: 'normal',
+    },
+  ]
+})
+
+const IRANSansXFaNum = localFont({
+  src: [
+    {
+      path: './fonts/numerals/IRANSansXFaNum-Thin.woff',
+      weight: '100',
+      style: 'normal',
+    },
+    {
+      path: './fonts/numerals/IRANSansXFaNum-UltraLight.woff',
+      weight: '200',
+      style: 'normal',
+    },
+    {
+      path: './fonts/numerals/IRANSansXFaNum-Light.woff',
+      weight: '300',
+      style: 'normal',
+    },
+    {
+      path: './fonts/numerals/IRANSansXFaNum-Regular.woff',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: './fonts/numerals/IRANSansXFaNum-Medium.woff',
+      weight: '500',
+      style: 'normal',
+    },
+    {
+      path: './fonts/numerals/IRANSansXFaNum-DemiBold.woff',
+      weight: '600',
+      style: 'normal',
+    },
+    {
+      path: './fonts/numerals/IRANSansXFaNum-Bold.woff',
+      weight: '700',
+      style: 'normal',
+    },
+    {
+      path: './fonts/numerals/IRANSansXFaNum-ExtraBold.woff',
+      weight: '800',
+      style: 'normal',
+    },
+  ]
+})
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,7 +106,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      <body className={`${IRANSansX.className} ${IRANSansXFaNum.className}`}>
         <MainNavigation />
         <main>{children}</main>
         <MainFooter />
