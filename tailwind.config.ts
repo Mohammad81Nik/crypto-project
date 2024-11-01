@@ -13,7 +13,9 @@ const config: Config = {
         "custom-mobile": "375px"
       },
       colors: {
-        "nav-background": "#F8F9FA"
+        "nav-background": "#F8F9FA",
+        "footer-background": "#1B2A4E",
+        "line-color": "#374566"
       },
     },
   },
