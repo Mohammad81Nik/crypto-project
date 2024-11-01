@@ -1,11 +1,16 @@
+"use client"
 import Image from "next/image";
 import companyLogo from "@/public/company-logo.svg";
 import phoneLogo from "@/public/phone-icon.svg";
 import profilePic from "@/public/profile.png";
 import arrowIcon from "@/public/arrow.svg";
 import hamburger from "@/public/hamburger.svg";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+
 
 const MainNavigation = () => {
+  const pathname = usePathname();
   return (
     <header className="w-full bg-nav-background">
       <nav className="w-full h-[64px] custom-mobile:h-[92px]  custom-tablet:h-[104px] flex flex-row-reverse items-center justify-between min-[1280px]:pl-[10%] min-[1024px]:pl-[5%] min-[1280px]:pr-[10%] pl-[2%] min-[1024px]:pr-[5%] pr-[2%] text-nowrap">
@@ -20,8 +25,12 @@ const MainNavigation = () => {
             className="custom-tablet:h-[53px] custom-tablet:w-[109px] w-[57px] h-[28px]"
           />
           <ul className="hidden custom-tablet:flex-grow custom-tablet:flex custom-tablet:flex-row-reverse xl:gap-[10%] lg:gap-[5%] md:gap-[5%]">
-            <li>صفحه اصلی</li>
-            <li>قیمت رمزارزها</li>
+            <li>
+              <Link href="/" className={`${pathname === '/' ? 'text-primary-color' : 'text-black'}`}>صفحه اصلی</Link>
+            </li>
+            <li>
+              <Link href="/crypto-price-list" className={`${pathname === '/crypto-price-list' ? 'text-primary-color' : 'text-black'}`}>قیمت رمزارزها</Link>
+            </li>
             <li>مقالات</li>
             <li>تماس با ما</li>
             <li className="hidden min-[1280px]:block">سایر</li>

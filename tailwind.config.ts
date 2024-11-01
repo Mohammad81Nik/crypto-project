@@ -15,7 +15,8 @@ const config: Config = {
       colors: {
         "nav-background": "#F8F9FA",
         "footer-background": "#1B2A4E",
-        "line-color": "#374566"
+        "line-color": "#374566",
+        "primary-color": "#1652F0"
       },
     },
   },
