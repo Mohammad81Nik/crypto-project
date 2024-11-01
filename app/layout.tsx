@@ -3,6 +3,7 @@ import "./globals.css";
 import MainNavigation from "@/components/layouts/MainNavigation";
 import MainFooter from "@/components/layouts/MainFooter";
 import localFont from "next/font/local";
+import ReactQueryProvider from "@/components/ReactQueryProvider";
 
 const IRANSansX = localFont({
   src: [
@@ -108,7 +109,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${IRANSansX.className} ${IRANSansXFaNum.className}`}>
         <MainNavigation />
-        <main>{children}</main>
+        <ReactQueryProvider>
+          <main>{children}</main>
+        </ReactQueryProvider>
         <MainFooter />
       </body>
     </html>
