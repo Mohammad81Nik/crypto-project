@@ -8,6 +8,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens: {
+        "custom-tablet": "834px",
+        "custom-mobile": "375px"
+      },
       colors: {
         "nav-background": "#F8F9FA"
       },
