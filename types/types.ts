@@ -1,3 +1,4 @@
+import { ReactNode } from "react"
 
 export interface ITableItem  {
     id: number,
@@ -17,7 +18,7 @@ export interface ICryptoItem extends ITableItem {
     about: string,
 }
 
-export interface ITableColumn {
+export interface ITable {
     name: {
         fa: string,
         en: string,
@@ -27,5 +28,5 @@ export interface ITableColumn {
     daily_change_percent: string,
     buy_irt_price: string,
     sell_irt_price: string,
-    searchBar: Element
+    cta: ReactNode
 }

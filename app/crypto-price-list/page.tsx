@@ -14,11 +14,11 @@ const tabButtonsMap = [
 
 const page = () => {
   return (
-    <div className="h-screen flex flex-col items-center pt-[calc(200px-104px)] pl-[150px] pr-[150px]">
+    <div className=" flex flex-col items-center pt-[calc(200px-104px)] pl-[150px] pr-[150px] h-[2000px]">
       <h1 className="text-[40px] font-extrabold">
         لیست قیمت لحظه‌ای ارزهای دیجیتال‌
       </h1>
-      <div className="mt-[83px] w-full flex gap-4 ">
+      <div className="mt-[83px] w-full flex flex-row-reverse gap-4 ">
         {tabButtonsMap.map((item) => {
           return <TabButton title={item.title} id={item.id} />;
         })}

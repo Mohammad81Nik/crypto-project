@@ -4,9 +4,10 @@ const api = axios.create({
     baseURL: "https://b.wallet.ir/coinlist/list",
 })
 
-export const fetchData = async<T>() => {
+export const fetchData = async<T>(page: number) => {
+    console.log(page)
     const res = await api.post('', {
-        page: 1,
+        page: page,
         limit: 9,
         search: "",
         currency_code: "",

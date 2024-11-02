@@ -16,7 +16,10 @@ const config: Config = {
         "nav-background": "#F8F9FA",
         "footer-background": "#1B2A4E",
         "line-color": "#374566",
-        "primary-color": "#1652F0"
+        "primary-color": "#1652F0",
+        "table-header": "#E3E7EC",
+        "table-body-row-1": "#F7F7F7",
+        "table-body-row-2": "#FFFFFF",
       },
     },
   },
