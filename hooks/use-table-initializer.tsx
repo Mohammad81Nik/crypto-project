@@ -3,6 +3,8 @@ import {
   createColumnHelper,
   getCoreRowModel,
   getPaginationRowModel,
+  getExpandedRowModel,
+  type ExpandedState
 } from "@tanstack/react-table";
 import Image from "next/image";
 import { type ITable } from "@/types/types";
@@ -12,15 +14,19 @@ import { type Dispatch, type SetStateAction } from "react";
 
 const useTableInitializer = ({
   pagination,
+  expanded,
   setPagination,
+  setExpanded
 }: {
   pagination: {
     pageIndex: number;
     pageSize: number;
   };
+  expanded: ExpandedState;
   setPagination: Dispatch<
     SetStateAction<{ pageIndex: number; pageSize: number }>
   >;
+  setExpanded: Dispatch<SetStateAction<ExpandedState>>
 }) => {
 
     const tableData = useProvideData({page: pagination.pageIndex})
@@ -40,7 +46,7 @@ const useTableInitializer = ({
               height={33}
             />
             <div className="flex flex-col justify-end">
-              <span>{props.getValue().fa}</span>
+              <span className="text-right text-[12px] lg:text-[14px] font-normal">{props.getValue().fa}</span>
               <span className="text-right">{props.getValue().en}</span>
             </div>
           </div>
@@ -98,10 +104,15 @@ const useTableInitializer = ({
     getPaginationRowModel: getPaginationRowModel(),
     onPaginationChange: setPagination,
     manualPagination: true,
+    manualExpanding: false,
     state: {
       pagination,
+      expanded
     },
     autoResetPageIndex: false,
+    getExpandedRowModel: getExpandedRowModel(),
+    getRowCanExpand: () => true,
+    onExpandedChange: setExpanded
   });
 
   return table;

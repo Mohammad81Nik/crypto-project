@@ -5,7 +5,7 @@ const api = axios.create({
 })
 
 export const fetchData = async<T>(page: number) => {
-    console.log(page)
+
     const res = await api.post('', {
         page: page,
         limit: 9,
@@ -13,7 +13,7 @@ export const fetchData = async<T>(page: number) => {
         currency_code: "",
     })
 
-    console.log(res.data);
+
 
     return res.data.items as T[];
 }
