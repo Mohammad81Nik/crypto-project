@@ -1,5 +1,6 @@
 import Category from "@/components/Category";
 import CryptoTable from "@/components/CryptoTable";
+import GeneralInfoSectoin from "@/components/GeneralInfoSectoin";
 
 
 
@@ -11,6 +12,7 @@ const page = () => {
       </h1>
       <Category />
       <CryptoTable />
+      <GeneralInfoSectoin />
     </div>
   );
 };

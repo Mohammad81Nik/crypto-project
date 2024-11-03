@@ -47,7 +47,7 @@ const useTableInitializer = ({
             />
             <div className="flex flex-col justify-end">
               <span className="text-right text-[12px] lg:text-[14px] font-normal">{props.getValue().fa}</span>
-              <span className="text-right">{props.getValue().en}</span>
+              <span className="text-right truncate">{props.getValue().en}</span>
             </div>
           </div>
         );

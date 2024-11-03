@@ -24,8 +24,8 @@ const CryptoTable = () => {
   });
 
   return (
-    <div className="w-full mt-10 mb-10">
-      <table className="w-full h-[799px]">
+    <div className="w-full mt-10 mb-10 min-h-[1000px]">
+      <table className="w-full">
         <thead className="w-full bg-table-header h-[70px] flex items-center rounded-[8px]">
           {table.getHeaderGroups().map((headerGroup) => {
             return (
@@ -79,7 +79,7 @@ const CryptoTable = () => {
                     return (
                       <td
                         key={cell.id}
-                        className={`w-[30%] text-center justify-center md:justify-end items-center p-2 custom-mobile:p-4  flex md:w-[16.6%] md:text-right ${
+                        className={`w-[30%] min-w-0 truncate  text-center justify-center md:justify-end items-center p-2 custom-mobile:p-4  flex md:w-[16.6%] md:text-right ${
                           cell.column.id === "buy_irt_price" ||
                           cell.column.id === "sell_irt_price" ||
                           cell.column.id === "cta"
