@@ -28,5 +28,5 @@ export interface ITable {
     daily_change_percent: string,
     buy_irt_price: string,
     sell_irt_price: string,
-    cta: ReactNode
+    cta: string
 }

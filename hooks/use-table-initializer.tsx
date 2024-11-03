@@ -11,6 +11,7 @@ import { type ITable } from "@/types/types";
 import searchIcon from "@/public/searchIcon.svg";
 import useProvideData from "./use-provide-data";
 import { type Dispatch, type SetStateAction } from "react";
+import ToTransactionButton from "@/components/ui/ToTransactionButton";
 
 const useTableInitializer = ({
   pagination,
@@ -93,7 +94,7 @@ const useTableInitializer = ({
           />
         </div>
       ),
-      cell: (props) => <>{props.getValue()}</>,
+      cell: (props) => <ToTransactionButton isUsedInAccordian={false} currency_code={props.row.original.cta} />,
     }),
   ];
 

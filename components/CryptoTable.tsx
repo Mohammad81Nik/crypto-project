@@ -122,6 +122,7 @@ const CryptoTable = () => {
                       <RowAccordian
                         buy_irt_price={row.original.buy_irt_price}
                         sell_irt_price={row.original.sell_irt_price}
+                        currency_code={row.original.cta}
                       />
                     </td>
                   </tr>

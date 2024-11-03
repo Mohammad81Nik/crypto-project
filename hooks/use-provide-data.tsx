@@ -25,7 +25,7 @@ const useProvideData = ({ page }: { page: number }) => {
           daily_change_percent: item.daily_change_percent,
           buy_irt_price: item.buy_irt_price,
           sell_irt_price: item.sell_irt_price,
-          cta: <ToTransactionButton isUsedInAccordian={false} />,
+          cta: item.currency_code,
         };
       });
 
