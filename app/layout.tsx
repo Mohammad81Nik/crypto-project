@@ -106,7 +106,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="fa-IR">
       <body className={`${IRANSansX.className} ${IRANSansXFaNum.className}`}>
         <MainNavigation />
         <ReactQueryProvider>

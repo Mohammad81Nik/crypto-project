@@ -1,12 +1,12 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: "https://b.wallet.ir/coinlist/list",
+    baseURL: "https://b.wallet.ir/coinlist/",
 })
 
 export const fetchData = async<T>(page: number) => {
 
-    const res = await api.post('', {
+    const res = await api.post('/list', {
         page: page,
         limit: 9,
         search: "",
@@ -20,7 +20,7 @@ export const fetchData = async<T>(page: number) => {
 
 
 export const fetchCryptoData = async<T>(currency_code: string) => {
-    const res = await api.post('', {
+    const res = await api.post('/list', {
         page: 1,
         limit: 9,
         search: "",

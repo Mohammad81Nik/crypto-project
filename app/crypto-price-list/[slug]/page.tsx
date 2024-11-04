@@ -1,25 +1,27 @@
 "use client";
-import { useSuspenseQuery } from "@tanstack/react-query";
 import { fetchCryptoData } from "@/axios/axios";
-import { type ICryptoItem } from "@/types/types";
-import { Suspense, use } from "react";
+import TransactionContainer from "@/components/TransactionContainer";
+import { ICryptoItem } from "@/types/types";
+import { useQuery } from "@tanstack/react-query";
+import { use } from "react";
 
-const useSusQuery = (currency_code: string) => {
-  const { data } = useSuspenseQuery({
-    queryKey: [`${currency_code}-description`],
-    queryFn: () => fetchCryptoData<ICryptoItem>(currency_code),
+const page = ({ params }: { params: Promise<{ slug: string }> }) => {
+  const unwrappedParams = use(params);
+  const slug = unwrappedParams.slug;
+
+
+
+  const { data, isPending, isError, error } = useQuery({
+    queryKey: ["currency-description"],
+    queryFn: () => {
+      return fetchCryptoData<ICryptoItem>(slug);
+    },
   });
-  return data;
-};
 
-const page = ({ params }: { params: {slug: string}}) => {
-  const data = useSusQuery(params.slug);
   return (
-    <div>
-      <h1>crypto detail page</h1>
-      <Suspense fallback={<p>loading...</p>}>
-        <div>{data[0].fa_name}</div>
-      </Suspense>
+    <div className="w-full pt-[60px] pb-[60px] pr-[150px] pl-[150px] bg-table-body-row-1">
+      {isPending && <p>Loading...</p>}
+      {data && <TransactionContainer data={data[0]}/>}
     </div>
   );
 };

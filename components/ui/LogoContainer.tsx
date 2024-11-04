@@ -14,7 +14,7 @@ const LogoContainer = ({
         height={15.31}
         src={logoPath}
         alt={alt}
-        className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]"
+        className="absolute top-[50%] left-[50%] translalte-x-[-50%] translate-y-[-50%]"
       />
     </div>
   );
