@@ -7,6 +7,7 @@ import { useQuery } from "@tanstack/react-query";
 import { use } from "react";
 import AdditionalInfo from "@/components/AdditionalInfo";
 import InitialInfo from "@/components/InitialInfo";
+import Guide from "@/components/Guide";
 
 const page = ({ params }: { params: Promise<{ slug: string }> }) => {
   const unwrappedParams = use(params);
@@ -28,6 +29,7 @@ const page = ({ params }: { params: Promise<{ slug: string }> }) => {
         <AdditionalInfo about={data[0].about} crypto_name={data[0].fa_name} />
       )}
       <Questions />
+      {data && <Guide currency_name={data[0].fa_name}/>}
     </div>
   );
 };

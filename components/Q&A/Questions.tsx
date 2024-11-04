@@ -68,7 +68,7 @@ const Questions = () => {
     isOpen: boolean;
   }>({ id: "", isOpen: false });
   return (
-    <div className="w-full flex flex-col items-end mt-20 text-right gap-y-[15px]">
+    <div className="w-full flex flex-col items-end text-right gap-y-[15px]">
       <h2 className="text-[20px] custom-tablet:text-[30px] font-extrabold">سوالات متداول</h2>
       {accordianMap.map((item) => {
         return (
