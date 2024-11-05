@@ -53,9 +53,9 @@ const CryptoTable = () => {
       setPagination((prevState) => {
         return { ...prevState, pageIndex: 1 };
       });
-    } else if (btnNum === 10) {
+    } else if (btnNum === total_page) {
       setPagination((prevState) => {
-        return { ...prevState, pageIndex: 10 };
+        return { ...prevState, pageIndex: total_page };
       });
     } else if (pagination.pageIndex - 1 === btnNum) {
       table.previousPage();
