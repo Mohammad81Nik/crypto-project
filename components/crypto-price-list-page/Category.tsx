@@ -1,5 +1,5 @@
 "use client";
-import TabButton from "./ui/TabButton";
+import TabButton from "../ui/TabButton";
 import { useState } from "react";
 import Image from "next/image";
 import arrowIcon from "@/public/arrowWhite.svg";

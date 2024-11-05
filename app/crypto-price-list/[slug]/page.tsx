@@ -1,13 +1,13 @@
 "use client";
 import { fetchCryptoData } from "@/axios/axios";
 import Questions from "@/components/Q&A/Questions";
-import TransactionContainer from "@/components/TransactionContainer";
+import TransactionContainer from "@/components/crypto-transaction-page/TransactionContainer";
 import { ICryptoItem } from "@/types/types";
 import { useQuery } from "@tanstack/react-query";
 import { use } from "react";
-import AdditionalInfo from "@/components/AdditionalInfo";
-import InitialInfo from "@/components/InitialInfo";
-import Guide from "@/components/Guide";
+import AdditionalInfo from "@/components/crypto-transaction-page/AdditionalInfo";
+import InitialInfo from "@/components/crypto-transaction-page/InitialInfo";
+import Guide from "@/components/crypto-transaction-page/Guide";
 
 const page = ({ params }: { params: Promise<{ slug: string }> }) => {
   const unwrappedParams = use(params);

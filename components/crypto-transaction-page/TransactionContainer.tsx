@@ -1,9 +1,9 @@
 import { ICryptoItem } from "@/types/types";
-import CryptoIconContainer from "./ui/CryptoIconContainer";
-import CurrencyValueInput from "./ui/currencyValueInput";
+import CryptoIconContainer from "../ui/CryptoIconContainer";
+import CurrencyValueInput from "../ui/currencyValueInput";
 import interchangeIcon from "@/public/interchangeIcon.svg";
 import Image from "next/image";
-import PersianTextEditor from "./ui/PersianTextEditor";
+import PersianTextEditor from "../ui/PersianTextEditor";
 
 const TransactionContainer = ({ data }: { data: ICryptoItem }) => {
   const todayPriceInfoMap = [

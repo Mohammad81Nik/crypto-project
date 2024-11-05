@@ -1,6 +1,6 @@
-import Category from "@/components/Category";
-import CryptoTable from "@/components/CryptoTable";
-import GeneralInfoSectoin from "@/components/GeneralInfoSectoin";
+import Category from "@/components/crypto-price-list-page/Category";
+import CryptoTable from "@/components/crypto-price-list-page/CryptoTable";
+import GeneralInfoSectoin from "@/components/crypto-price-list-page/GeneralInfoSectoin";
 
 
 

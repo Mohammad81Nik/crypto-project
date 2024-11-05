@@ -1,7 +1,7 @@
 "use client";
 import { flexRender } from "@tanstack/react-table";
 import { useState, Fragment } from "react";
-import RowAccordian from "./ui/RowAccordian";
+import RowAccordian from "../ui/RowAccordian";
 import {
   useReactTable,
   createColumnHelper,
@@ -200,7 +200,7 @@ const CryptoTable = () => {
       </table>
 
       <div className="flex w-full mt-5 h-[31] gap-4 justify-center">
-        {!isError && !isPending && data && (
+        {!isError && !isPending && data && data.items.length > 0 && (
           <>
             {btnArray.map((num) => {
               return (
