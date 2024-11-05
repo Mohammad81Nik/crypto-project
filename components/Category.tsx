@@ -26,7 +26,7 @@ const Category = () => {
     <>
       <div className="hidden min-[420px]:flex mt-[52px] lg:mt-[83px] justify-center custom-tablet:justify-normal flex-wrap custom-tablet:flex-nowrap w-full flex-row-reverse gap-4 ">
         {tabButtonsMap.map((item) => {
-          return <TabButton title={item.title} id={item.id} />;
+          return <TabButton key={item.id} id={item.id} title={item.title} />;
         })}
       </div>
       <div className="w-full mt-[52px] lg:mt-[83px]">
