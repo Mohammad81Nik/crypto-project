@@ -13,10 +13,12 @@ import {
 import { type ITable } from "@/types/types";
 import useProvideData from "@/hooks/use-provide-data";
 import useColumnDef from "@/hooks/use-column-def";
+import useDebounce from "@/hooks/useDebounce";
 
 const CryptoTable = () => {
   /////////////////// STATE INITIALIZATION ///////////////////
   const [tableData, setTableData] = useState<ITable[]>([]);
+  const [searchParam, setSearchParam] = useState<string>('');
   const [pagination, setPagination] = useState<{
     pageIndex: number;
     pageSize: number;
@@ -26,13 +28,17 @@ const CryptoTable = () => {
   });
   const [expanded, setExpanded] = useState<ExpandedState>({});
 
+
+  //////////////// DEBOUNCING THE SEARCH PARAM USING THE CUSTOM HOOK //////////////
+  const debouncedSearchParam = useDebounce(searchParam, 500);
+
   /////////////// DEFINING THE COLUMNS USING USEMEMO() ////////////
-  const column = useColumnDef();
+  const column = useColumnDef(setSearchParam);
 
   /////////////// GET THE TABLE DATA /////////////
 
   const { data, isPending, isError, error, isFetching, isPlaceholderData } =
-    useProvideData({ page: pagination.pageIndex });
+    useProvideData({ page: pagination.pageIndex, debouncedSearchParam });
 
   ///////////////////////// TABLE INITIALIZATION //////////////////////
 

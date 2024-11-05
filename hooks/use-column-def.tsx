@@ -1,11 +1,11 @@
-import { useMemo } from "react";
+import { useMemo, type Dispatch, type SetStateAction } from "react";
 import { createColumnHelper } from "@tanstack/react-table";
 import { type ICryptoItem } from "@/types/types";
 import Image from "next/image";
 import searchIcon from "@/public/searchIcon.svg";
 import ToTransactionButton from "@/components/ui/ToTransactionButton";
 
-const useColumnDef = () => {
+const useColumnDef = (setSearchParam: Dispatch<SetStateAction<string>>) => {
   return useMemo(() => {
     const columnHelper = createColumnHelper<ICryptoItem>();
     return [
@@ -64,12 +64,15 @@ const useColumnDef = () => {
       columnHelper.accessor("currency_code", {
         id: "cta",
         header: () => (
-          <div className="flex flex-row-reverse bg-white rounded-[8px] py-3  px-2 text-[16px] font-normal">
+          <div className="flex flex-row-reverse gap-4 bg-white rounded-[8px] py-3 px-2 text-[16px] font-normal">
             <Image src={searchIcon} alt="search icon" />
             <input
               type="text"
               placeholder="...جستجو"
-              className="text-right w-full outline-none"
+              className="text-right w-[80%] outline-none"
+              onChange={(event) => {
+                setSearchParam(event.target.value);
+              }}
             />
           </div>
         ),

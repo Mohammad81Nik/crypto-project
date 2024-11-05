@@ -3,11 +3,11 @@ import { useQuery, useQueryClient, keepPreviousData } from "@tanstack/react-quer
 import { fetchData } from "@/axios/axios";
 import { type ICryptoItem, type ITable } from "@/types/types";
 
-const useProvideData = ({ page }: { page: number }) => {
+const useProvideData = ({ page, debouncedSearchParam }: { page: number, debouncedSearchParam: string }) => {
   const { data, isPending, isError, error, isFetching, isPlaceholderData } =
     useQuery({
-      queryKey: ["crypto-price-list", page],
-      queryFn: () => fetchData<ICryptoItem>(page),
+      queryKey: ["crypto-price-list", page, debouncedSearchParam],
+      queryFn: () => fetchData<ICryptoItem>(page, debouncedSearchParam),
       placeholderData: keepPreviousData,
     });
 
