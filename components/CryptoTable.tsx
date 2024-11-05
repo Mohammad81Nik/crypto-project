@@ -60,7 +60,7 @@ const CryptoTable = () => {
   });
 
   return (
-    <div className="w-full mt-10 mb-10 min-h-[1000px]">
+    <div className="w-full min-h-[900px]">
       <table className="w-full">
         <thead className="w-full bg-table-header h-[70px] flex items-center rounded-[8px]">
           {table.getHeaderGroups().map((headerGroup) => {

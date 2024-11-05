@@ -3,7 +3,7 @@ import infoImage from "@/public/content-image.png";
 
 const GeneralInfoSectoin = () => {
   return (
-    <div className="text-right flex flex-col gap-[41px] mt-10 mb-10 min-[420px]:pr-[5%] pr-[10%] min-[420px]:pl-[5%] pl-[10%]">
+    <div className="text-right flex flex-col gap-[41px] mt-[71px] custom-tablet:mt-[99px] lg:mt-[130px] xl:mt-[163px] mb-[55px] custom-tablet:mb-[66px] lg:mb-[75px] xl:mb-[96px] min-[420px]:pr-[5%] pr-[10%] min-[420px]:pl-[5%] pl-[10%]">
       <h1 className="text-[24px] font-extrabold">توضیحات کلی در مورد رمز ارزها</h1>
       <p className="leading-[32px] text-[16px] font-normal">
         رمز ارز ها از پروتکل های رمزگرافیکی و یا کد های فوق العاده پیچیده برای

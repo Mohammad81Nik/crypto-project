@@ -24,15 +24,15 @@ const Category = () => {
 
   return (
     <>
-      <div className="hidden min-[420px]:flex mt-[52px] lg:mt-[83px] justify-center custom-tablet:justify-normal flex-wrap custom-tablet:flex-nowrap w-full flex-row-reverse gap-4 ">
+      <div className="hidden min-[420px]:flex mt-[52px] lg:mt-[83px] justify-center custom-tablet:justify-normal flex-wrap custom-tablet:flex-nowrap w-full flex-row-reverse gap-4 mb-[20px] custom-tablet:mb-[37px]">
         {tabButtonsMap.map((item) => {
           return <TabButton key={item.id} id={item.id} title={item.title} />;
         })}
       </div>
-      <div className="w-full mt-[52px] lg:mt-[83px]">
+      <div className="block min-[420px]:hidden w-full mt-[52px] lg:mt-[83px] mb-[12px]">
         <button
           onClick={accordTriggerHandler}
-          className={`block min-[420px]:hidden w-full bg-primary-color text-white ${
+          className={` w-full bg-primary-color text-white ${
             accordianIsOpen ? "rounded-b-0 rounded-t-[8px]" : "rounded-[8px]"
           } h-[47px] flex flex-row-reverse justify-between items-center`}
         >
@@ -40,7 +40,8 @@ const Category = () => {
           <Image src={arrowIcon} alt="Arrow down" className="text-white ml-5" />
         </button>
         <div
-          className={`block min-[420px]:hidden overflow-hidden ${accordianIsOpen ? "h-[329px]" : "h-0"}`}
+        id="accordian category"
+          className={`block min-[420px]:hidden overflow-hidden transition-all duration-500 ${accordianIsOpen ? "h-[329px]" : "h-0"}`}
         >
           {tabButtonsMap.map((item) => {
             if (item.title !== categoryAtive) {
