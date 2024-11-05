@@ -56,7 +56,7 @@ const CryptoTable = () => {
             );
           })}
         </thead>
-        <tbody className="">
+        <tbody>
           {table.getRowModel().rows.map((row) => {
             return (
               <>

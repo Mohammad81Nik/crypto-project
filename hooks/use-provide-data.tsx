@@ -1,15 +1,16 @@
 "use client";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useMemo } from "react";
 import { fetchData } from "@/axios/axios";
 import { type ICryptoItem, type ITable } from "@/types/types";
-import ToTransactionButton from "@/components/ui/ToTransactionButton";
 
 const useProvideData = ({ page }: { page: number }) => {
-  const { data, isError, isPending, error, isPlaceholderData, isFetching } =
+  const queryClient = useQueryClient();
+  const { data, isError, isPending, error, isFetching } =
     useQuery({
       queryKey: ["crypto-price-list", page],
       queryFn: () => fetchData<ICryptoItem>(page),
+      placeholderData: () => queryClient.getQueryData(['crypto-price-list', page - 1])
     });
 
   const tableData = useMemo(() => {

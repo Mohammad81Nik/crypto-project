@@ -4,20 +4,20 @@ import {
   getCoreRowModel,
   getPaginationRowModel,
   getExpandedRowModel,
-  type ExpandedState
+  type ExpandedState,
 } from "@tanstack/react-table";
 import Image from "next/image";
 import { type ITable } from "@/types/types";
 import searchIcon from "@/public/searchIcon.svg";
 import useProvideData from "./use-provide-data";
-import { type Dispatch, type SetStateAction } from "react";
+import { type Dispatch, type SetStateAction, useCallback } from "react";
 import ToTransactionButton from "@/components/ui/ToTransactionButton";
 
 const useTableInitializer = ({
   pagination,
   expanded,
   setPagination,
-  setExpanded
+  setExpanded,
 }: {
   pagination: {
     pageIndex: number;
@@ -27,12 +27,15 @@ const useTableInitializer = ({
   setPagination: Dispatch<
     SetStateAction<{ pageIndex: number; pageSize: number }>
   >;
-  setExpanded: Dispatch<SetStateAction<ExpandedState>>
+  setExpanded: Dispatch<SetStateAction<ExpandedState>>;
 }) => {
-
-    const tableData = useProvideData({page: pagination.pageIndex})
+  const tableData = useProvideData({ page: pagination.pageIndex });
 
   const columnHelper = createColumnHelper<ITable>();
+
+  const handleExpandedChange = useCallback(setExpanded, []);
+  const handlePaginationChange = useCallback(setPagination, []);
+
   const column = [
     columnHelper.accessor("name", {
       id: "name",
@@ -47,7 +50,9 @@ const useTableInitializer = ({
               height={33}
             />
             <div className="flex flex-col justify-end">
-              <span className="text-right text-[12px] lg:text-[14px] font-normal">{props.getValue().fa}</span>
+              <span className="text-right text-[12px] lg:text-[14px] font-normal">
+                {props.getValue().fa}
+              </span>
               <span className="text-right truncate">{props.getValue().en}</span>
             </div>
           </div>
@@ -94,7 +99,12 @@ const useTableInitializer = ({
           />
         </div>
       ),
-      cell: (props) => <ToTransactionButton isUsedInAccordian={false} currency_code={props.row.original.cta} />,
+      cell: (props) => (
+        <ToTransactionButton
+          isUsedInAccordian={false}
+          currency_code={props.row.original.cta}
+        />
+      ),
     }),
   ];
 
@@ -103,17 +113,16 @@ const useTableInitializer = ({
     columns: column,
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
-    onPaginationChange: setPagination,
+    onPaginationChange: handlePaginationChange,
     manualPagination: true,
-    manualExpanding: false,
     state: {
       pagination,
-      expanded
+      expanded,
     },
     autoResetPageIndex: false,
     getExpandedRowModel: getExpandedRowModel(),
     getRowCanExpand: () => true,
-    onExpandedChange: setExpanded
+    onExpandedChange: handleExpandedChange,
   });
 
   return table;
