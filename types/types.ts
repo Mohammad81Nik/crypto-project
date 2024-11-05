@@ -1,5 +1,15 @@
 import { ReactNode } from "react"
 
+export interface IRawData {
+    items: ICryptoItem[],
+    total_page: number,
+    page: string,
+    count: number,
+    limit: string,
+    success: boolean,
+    status: number
+}
+
 export interface ITableItem  {
     id: number,
     currency_code: string,

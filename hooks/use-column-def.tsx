@@ -64,12 +64,12 @@ const useColumnDef = (setSearchParam: Dispatch<SetStateAction<string>>) => {
       columnHelper.accessor("currency_code", {
         id: "cta",
         header: () => (
-          <div className="flex flex-row-reverse gap-4 bg-white rounded-[8px] py-3 px-2 text-[16px] font-normal">
-            <Image src={searchIcon} alt="search icon" />
+          <div className="w-full flex flex-row-reverse justify-end gap-2  items-center bg-white rounded-[8px] h-[47px] text-[16px] font-normal">
+            <Image src={searchIcon} alt="search icon" width={16} height={16}/>
             <input
               type="text"
               placeholder="...جستجو"
-              className="text-right w-[80%] outline-none"
+              className="text-right w-[70%] text-[12px] outline-none"
               onChange={(event) => {
                 setSearchParam(event.target.value);
               }}

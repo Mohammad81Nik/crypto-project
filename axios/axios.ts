@@ -15,7 +15,7 @@ export const fetchData = async<T>(page: number, searchParam: string) => {
 
 
 
-    return res.data.items as T[];
+    return res.data as T;
 }
 
 

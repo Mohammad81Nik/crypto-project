@@ -27,6 +27,7 @@ const config: Config = {
         "interchange-button": "#E8E8E8",
         "buy-button-color": "#0D1A8E",
         "accordian-border-color": "#F1F1F1",
+        "pagin-buttons": "#EEF2F5"
       },
     },
   },

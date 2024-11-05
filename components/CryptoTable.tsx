@@ -9,16 +9,18 @@ import {
   getPaginationRowModel,
   getExpandedRowModel,
   type ExpandedState,
+  type Table,
 } from "@tanstack/react-table";
-import { type ITable } from "@/types/types";
+import { type ITable, type ICryptoItem } from "@/types/types";
 import useProvideData from "@/hooks/use-provide-data";
 import useColumnDef from "@/hooks/use-column-def";
 import useDebounce from "@/hooks/useDebounce";
+import usePaginationButtons from "@/hooks/use-pagination-buttons";
 
 const CryptoTable = () => {
   /////////////////// STATE INITIALIZATION ///////////////////
   const [tableData, setTableData] = useState<ITable[]>([]);
-  const [searchParam, setSearchParam] = useState<string>('');
+  const [searchParam, setSearchParam] = useState<string>("");
   const [pagination, setPagination] = useState<{
     pageIndex: number;
     pageSize: number;
@@ -27,7 +29,6 @@ const CryptoTable = () => {
     pageSize: 9,
   });
   const [expanded, setExpanded] = useState<ExpandedState>({});
-
 
   //////////////// DEBOUNCING THE SEARCH PARAM USING THE CUSTOM HOOK //////////////
   const debouncedSearchParam = useDebounce(searchParam, 500);
@@ -40,10 +41,33 @@ const CryptoTable = () => {
   const { data, isPending, isError, error, isFetching, isPlaceholderData } =
     useProvideData({ page: pagination.pageIndex, debouncedSearchParam });
 
+  ////////////// INITIALIZING THE PAGINATION BUTTONS /////////////////
+  const btnArray = usePaginationButtons(data?.count, pagination.pageIndex);
+
+  const paginButtonHandler = (
+    btnNum: number,
+    total_page: number,
+    table: Table<ICryptoItem>
+  ) => {
+    if (btnNum === 1) {
+      setPagination((prevState) => {
+        return { ...prevState, pageIndex: 1 };
+      });
+    } else if (btnNum === 10) {
+      setPagination((prevState) => {
+        return { ...prevState, pageIndex: 10 };
+      });
+    } else if (pagination.pageIndex - 1 === btnNum) {
+      table.previousPage();
+    } else if (pagination.pageIndex + 1 === btnNum) {
+      table.nextPage();
+    }
+  };
+
   ///////////////////////// TABLE INITIALIZATION //////////////////////
 
   const table = useReactTable({
-    data: data || [],
+    data: data?.items || [],
     columns: column,
     getCoreRowModel: getCoreRowModel(),
     getExpandedRowModel: getExpandedRowModel(),
@@ -51,10 +75,17 @@ const CryptoTable = () => {
     onPaginationChange: setPagination,
     onExpandedChange: setExpanded,
     manualPagination: true,
+    initialState: {
+      pagination: {
+        pageIndex: 1,
+        pageSize: 9,
+      },
+    },
     state: {
       pagination,
       expanded,
     },
+    pageCount: data?.total_page,
     autoResetPageIndex: false,
     getRowCanExpand: () => true,
   });
@@ -168,24 +199,39 @@ const CryptoTable = () => {
         </tbody>
       </table>
 
-      <div className="w-full mb-10 flex justify-between mt-10">
-        <button
-          onClick={() => {
-            table.nextPage();
-          }}
-          className="bg-primary-color text-white px-5 py-3 rounded-xl"
-        >
-          Next
-        </button>
-        <button
-          onClick={() => {
-            table.previousPage();
-          }}
-          className="bg-primary-color text-white px-5 py-3 rounded-xl"
-          disabled={!table.getCanPreviousPage()}
-        >
-          previous
-        </button>
+      <div className="flex w-full mt-5 h-[31] gap-4 justify-center">
+        {!isError && !isPending && data && (
+          <>
+            {btnArray.map((num) => {
+              return (
+                <button
+                  key={Math.random().toString()}
+                  className={`w-[31px] h-[31px] ${
+                    !isFetching
+                      ? "disabled:bg-primary-color disabled:text-white"
+                      : undefined
+                  }  ${
+                    num === "..."
+                      ? "bg-transparent"
+                      : "bg-pagin-buttons transition-colors duration-500 hover:bg-primary-color hover:text-white"
+                  }  rounded-[50%]`}
+                  onClick={() => {
+                    paginButtonHandler(Number(num), data.total_page, table);
+                  }}
+                  disabled={
+                    Number(num) === pagination.pageIndex ||
+                    (Number(num) === 1 && pagination.pageIndex === 1) ||
+                    (Number(num) === data.total_page &&
+                      pagination.pageIndex === data.total_page) ||
+                    isFetching
+                  }
+                >
+                  {num}
+                </button>
+              );
+            })}
+          </>
+        )}
       </div>
     </div>
   );
