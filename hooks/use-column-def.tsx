@@ -4,6 +4,7 @@ import { type ICryptoItem } from "@/types/types";
 import Image from "next/image";
 import searchIcon from "@/public/searchIcon.svg";
 import ToTransactionButton from "@/components/ui/ToTransactionButton";
+import PersianTextEditor from "@/components/ui/PersianTextEditor";
 
 const useColumnDef = (setSearchParam: Dispatch<SetStateAction<string>>) => {
   return useMemo(() => {
@@ -25,7 +26,7 @@ const useColumnDef = (setSearchParam: Dispatch<SetStateAction<string>>) => {
                 <span className="text-right text-[12px] lg:text-[14px] font-normal">
                   {props.row.original.fa_name}
                 </span>
-                <span className="text-right truncate">
+                <span className="text-right text-[12px] truncate">
                   {props.row.original.en_name}
                 </span>
               </div>
@@ -51,21 +52,31 @@ const useColumnDef = (setSearchParam: Dispatch<SetStateAction<string>>) => {
         id: "sell_irt_price",
         header: () => <p className="text-[14px] font-normal">فروش به والت</p>,
         cell: (props) => (
-          <p>{props.getValue().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
+          <p className="flex gap-1 justify-end">
+            <PersianTextEditor
+              unit="تومان"
+              price={props.getValue().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+            />
+          </p>
         ),
       }),
       columnHelper.accessor("buy_irt_price", {
         id: "buy_irt_price",
         header: () => <p className="text-[14px] font-normal">خرید از والت</p>,
         cell: (props) => (
-          <p>{props.getValue().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
+          <p className="flex gap-1">
+            <PersianTextEditor
+              unit="تومان"
+              price={props.getValue().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+            />
+          </p>
         ),
       }),
       columnHelper.accessor("currency_code", {
         id: "cta",
         header: () => (
           <div className="w-full flex flex-row-reverse justify-end gap-2  items-center bg-white rounded-[8px] h-[47px] text-[16px] font-normal">
-            <Image src={searchIcon} alt="search icon" width={16} height={16}/>
+            <Image src={searchIcon} alt="search icon" width={16} height={16} />
             <input
               type="text"
               placeholder="...جستجو"

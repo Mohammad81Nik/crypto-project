@@ -1,4 +1,5 @@
 "use client";
+import PersianTextEditor from "./PersianTextEditor";
 import ToTransactionButton from "./ToTransactionButton";
 
 const RowAccordian = ({
@@ -14,14 +15,22 @@ const RowAccordian = ({
     <>
       <div className="w-full flex flex-row-reverse justify-between">
         <span>فروش به والت</span>
-        <span>
-          {sell_irt_price.replace(/\B(?=(\d{3})+(?!\d))/g, ",")} تومان
+        <span className="flex gap-1">
+          <PersianTextEditor
+            unit="تومان"
+            price={sell_irt_price.replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+          />
         </span>
       </div>
 
       <div className="w-full flex flex-row-reverse justify-between">
         <span>خرید از والت</span>
-        <span>{buy_irt_price.replace(/\B(?=(\d{3})+(?!\d))/g, ",")} تومان</span>
+        <span className="flex gap-1">
+          <PersianTextEditor
+            unit="تومان"
+            price={buy_irt_price.replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+          />
+        </span>
       </div>
 
       <ToTransactionButton

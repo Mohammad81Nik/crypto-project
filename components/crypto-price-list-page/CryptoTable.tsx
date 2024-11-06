@@ -104,7 +104,7 @@ const CryptoTable = () => {
                   return (
                     <th
                       key={header.id}
-                      className={`w-[30%] md:w-[16.6%] text-center md:text-right justify-center md:justify-end items-center ${
+                      className={`w-[30%] md:w-[16.6%] text-center md:text-right ${header.id === 'name' ? 'justify-center md:justify-end' : 'justify-center'} items-center ${
                         header.id === "sell_irt_price" ||
                         header.id === "buy_irt_price" ||
                         header.id === "cta"
@@ -147,7 +147,7 @@ const CryptoTable = () => {
                         return (
                           <td
                             key={cell.id}
-                            className={`w-[30%] min-w-0 truncate  text-center justify-center md:justify-end items-center p-2 custom-mobile:p-4  flex md:w-[16.6%] md:text-right ${
+                            className={`w-[30%] min-w-0 truncate  text-center ${cell.column.id === 'name' ? "justify-center md:justify-end" : 'justify-center'} items-center p-2 custom-mobile:p-3  flex md:w-[16.6%] md:text-right ${
                               cell.column.id === "buy_irt_price" ||
                               cell.column.id === "sell_irt_price" ||
                               cell.column.id === "cta"
