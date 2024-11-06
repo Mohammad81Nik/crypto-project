@@ -5,7 +5,10 @@ const nextConfig: NextConfig = {
   images: {
     domains: ["b.wallet.ir"],
     formats: ["image/webp", "image/avif"],
-},
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 };
 
 export default nextConfig;

@@ -83,8 +83,7 @@ const TransactionContainer = ({ data }: { data: ICryptoItem }) => {
             <CryptoIconContainer
               iconUrl={data.icon}
               alt={data.en_name}
-              width={73}
-              height={73}
+
             />
             <div className="w-[50%] flex flex-col gap-2">
               <span className="text-[14px] custom-tablet:text-[18px] font-bold">
