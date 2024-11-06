@@ -8,6 +8,7 @@ import { use } from "react";
 import AdditionalInfo from "@/components/crypto-transaction-page/AdditionalInfo";
 import InitialInfo from "@/components/crypto-transaction-page/InitialInfo";
 import Guide from "@/components/crypto-transaction-page/Guide";
+import Chart from "@/components/crypto-price-list-page/Chart";
 
 const page = ({ params }: { params: Promise<{ slug: string }> }) => {
   const unwrappedParams = use(params);
@@ -25,6 +26,7 @@ const page = ({ params }: { params: Promise<{ slug: string }> }) => {
       {isPending && <p>Loading...</p>}
       {data && <TransactionContainer data={data[0]} />}
       {data && <InitialInfo about={data[0].about} crypto_name={data[0].fa_name}/>}
+      <Chart />
       {data && (
         <AdditionalInfo about={data[0].about} crypto_name={data[0].fa_name} />
       )}
