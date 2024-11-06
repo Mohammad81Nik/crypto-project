@@ -24,7 +24,7 @@ const page = ({ params }: { params: Promise<{ slug: string }> }) => {
           crypto_name={cryptoData[0].fa_name}
         />
       )}
-      {periodData && cryptoData && <ChartSection periods={periodData.items} currency_code={cryptoData[0].currency_code}/>}
+      {periodData && cryptoData && <ChartSection periods={periodData.items} currency_code={cryptoData[0].currency_code} fa_name={cryptoData[0].fa_name}/>}
       {cryptoData && (
         <AdditionalInfo
           about={cryptoData[0].about}

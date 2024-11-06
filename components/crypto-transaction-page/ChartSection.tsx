@@ -8,9 +8,11 @@ import Chart from "./Chart";
 const ChartSection = ({
   periods,
   currency_code,
+  fa_name
 }: {
   periods: TChartPeriodData[];
   currency_code: string;
+  fa_name: string
 }) => {
   const periodMap = periods.map((period) => {
     if (period === "24h") {
@@ -65,26 +67,33 @@ const ChartSection = ({
   });
 
   return (
-    <div className="w-full flex flex-col gap-9 bg-white p-8 rounded-[30px]">
-      <div className="w-full flex flex-row-reverse gap-4">
-        {periodMap.map((period, index) => {
-          if (index <= 4) {
-            return (
-              <button
-                className={`flex flex-row-reverse items-center justify-center gap-1 ${chartPeriod === period.originalUnit ? 'text-buy-button-color font-bold' : 'text-text-color font-normal'}`}
-                key={Math.random()}
-                onClick={() => {
-                  setChartPeriod(period.originalUnit);
-                }}
-              >
-                <span>{period.value}</span>
-                <span>{period.unit}</span>
-              </button>
-            );
-          }
-        })}
+    <div className="w-full h-[697px] flex flex-col gap-[32px] sm:gap-[48px] custom-tablet:gap-[56px] lg:gap-[58px] xl:gap-[63px]">
+      <h2 className="text-[20px] custom-tablet:text-[30px] font-extrabold text-center custom-tablet:text-right">نمودار قیمت {fa_name} و نرخ برابری تومان</h2>
+      <div className="w-full flex flex-col gap-9 bg-white py-4 px-[44px] lg:px-[59px] xl:px-[67px] rounded-[30px]">
+        <div className="w-full flex flex-row-reverse gap-4">
+          {periodMap.map((period, index) => {
+            if (index <= 4) {
+              return (
+                <button
+                  className={`flex flex-row-reverse items-center justify-center gap-1 ${
+                    chartPeriod === period.originalUnit
+                      ? "text-buy-button-color text-[12px] font-bold"
+                      : "text-text-color text-[12px] font-normal"
+                  }`}
+                  key={Math.random()}
+                  onClick={() => {
+                    setChartPeriod(period.originalUnit);
+                  }}
+                >
+                  <span>{period.value}</span>
+                  <span>{period.unit}</span>
+                </button>
+              );
+            }
+          })}
+        </div>
+        {data && <Chart data={data.items} />}
       </div>
-      {data && <Chart data={data.items}/>}
     </div>
   );
 };
