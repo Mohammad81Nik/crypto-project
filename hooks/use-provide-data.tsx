@@ -1,5 +1,5 @@
 "use client";
-import { useQuery, useQueryClient, keepPreviousData } from "@tanstack/react-query";
+import { useQuery, keepPreviousData } from "@tanstack/react-query";
 import { fetchData } from "@/axios/axios";
 import { IRawData, type ICryptoItem, type ITable } from "@/types/types";
 

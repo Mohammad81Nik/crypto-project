@@ -1,6 +1,5 @@
 import Image from "next/image";
-import iranCurrency from '@/public/iran-currancy.png'
-import arrow from '@/public/arrow.svg'
+
 
 const CurrencyValueInput = () => {
   return (
