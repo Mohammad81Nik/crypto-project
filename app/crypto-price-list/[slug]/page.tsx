@@ -1,15 +1,18 @@
 "use client";
 import Questions from "@/components/Q&A/Questions";
 import TransactionContainer from "@/components/crypto-transaction-page/TransactionContainer";
+import { use } from "react";
 import AdditionalInfo from "@/components/crypto-transaction-page/AdditionalInfo";
 import InitialInfo from "@/components/crypto-transaction-page/InitialInfo";
 import Guide from "@/components/crypto-transaction-page/Guide";
 import ChartSection from "@/components/crypto-transaction-page/ChartSection";
 import useCombineQuereis from "@/hooks/use-combine-queries";
 
-const page = ({ params }: { params: {slug: string} }) => {
+const page = ({ params }: { params: Promise<{ slug: string }> }) => {
+  const unwrappedParams = use(params);
+  const slug = unwrappedParams.slug;
 
-  const { isPending, cryptoData, periodData } = useCombineQuereis(params.slug);
+  const { isPending, cryptoData, periodData } = useCombineQuereis(slug);
 
   return (
     <div className="w-full pt-[60px] pb-[60px] pr-[2%] lg:pr-[5%] xl:pr-[150px] pl-[2%] lg:pl-[5%] xl:pl-[150px] bg-table-body-row-1 flex flex-col gap-[50px] custom-tablet:gap-[108px]">
