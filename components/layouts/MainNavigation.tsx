@@ -1,10 +1,5 @@
 "use client";
 import Image from "next/image";
-import companyLogo from "@/public/company-logo.svg";
-import phoneLogo from "@/public/phone-icon.svg";
-import profilePic from "@/public/profile.png";
-import arrowIcon from "@/public/arrow.svg";
-import hamburger from "@/public/hamburger.svg";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useRouter } from "next/navigation";
@@ -40,13 +35,15 @@ const MainNavigation = () => {
   return (
     <header className="relative w-full bg-nav-background">
       <nav className="w-full h-[64px] custom-mobile:h-[92px]  custom-tablet:h-[104px] flex flex-row-reverse items-center justify-between min-[1280px]:pl-[10%] min-[1024px]:pl-[5%] min-[1280px]:pr-[10%] pl-[2%] min-[1024px]:pr-[5%] pr-[2%] text-nowrap">
-        <div className="w-[50%] flex flex-row-reverse items-center gap-[5%] custom-tablet:flex-grow max-[834px]:gap-3">
+        <div className=" w-[50%] flex flex-row-reverse items-center gap-[5%] custom-tablet:flex-grow max-[834px]:gap-3">
           <div className=" flex justify-center items-center rounded-[7px] custom-tablet:hidden border-[1.5px] border-black w-[24px] h-[24px]">
             <Image
               onClick={() => {
                 setMenuIsOpen((prevState) => !prevState);
               }}
-              src={hamburger}
+              width={24}
+              height={24}
+              src={"/hamburger.svg"}
               alt="trigger icon"
             />
             <div
@@ -76,8 +73,10 @@ const MainNavigation = () => {
           </div>
 
           <Image
-            src={companyLogo}
+            src={"/company-logo.svg"}
             alt="compony-logo"
+            width={109}
+            height={53}
             className="custom-tablet:h-[53px] custom-tablet:w-[109px] w-[57px] h-[28px]"
             onClick={() => push("/")}
           />
@@ -111,15 +110,17 @@ const MainNavigation = () => {
         </div>
         <div className="w-[50%] custom-tablet:w-[40%] xl:w-[30%] items-center flex justify-between custom-tablet:gap-[2%]">
           <div className="flex flex-row-reverse max-[834px]:justify-end items-center flex-grow gap-1 lg:gap-[5%] ">
-            <figure className="min-w-[26px] max-h-[30px] w-[26px] h-[26px] rounded-[50%] overflow-hidden">
-              <Image src={profilePic} alt="profile picture" />
+            <figure className="relative min-w-[26px] max-h-[30px] w-[26px] h-[26px] rounded-[50%] overflow-hidden">
+              <Image src={"/profile.png"} alt="profile picture" fill/>
             </figure>
             <p>علی اسماعیلی</p>
-            <Image src={arrowIcon} alt="arrow icon" />
+            <Image src={"/arrow.svg"} width={24} height={24} alt="arrow icon" />
           </div>
           <div className="hidden custom-tablet:flex items-center custom-tablet:flex-row-reverse  custom-tablet:flex-grow gap-1 lg:gap-[5%]">
             <Image
-              src={phoneLogo}
+              width={24}
+              height={24}
+              src={"/phone-icon.svg"}
               alt="phone icon"
               className="max-[1024px]:w-[16px] max-[1024px]:h-[16px]"
             />

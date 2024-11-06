@@ -1,5 +1,4 @@
 import Image from "next/image";
-import infoImage from "@/public/content-image.png";
 
 const GeneralInfoSectoin = () => {
   return (
@@ -22,7 +21,7 @@ const GeneralInfoSectoin = () => {
         افتد جایی که هکر ها و بدافزار ها امکان بلوکه کردن پول شما را در حین این
         انتقال دارا هستند.
       </p>
-      <Image src={infoImage} alt="info content image" className="max-w-[750px] w-full rounded-2xl self-center mt-[25px] mb-[25px]"/>
+      <Image src={'/content-image.png'} width={750} height={422} alt="info content image" className="max-w-[750px] w-full rounded-2xl self-center mt-[25px] mb-[25px]"/>
       <p className="leading-[32px] text-[16px] font-normal">
         رمز ارز ها از پروتکل های رمزگرافیکی و یا کد های فوق العاده پیچیده برای
         رمز گذاری دیتاهای حساس و انتقال آن ها استفاده می کنند تا معاملات امنی را

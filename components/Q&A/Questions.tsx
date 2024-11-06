@@ -1,8 +1,5 @@
 "use client";
-
 import { useState } from "react";
-import arrowDown from "@/public/arrow.svg";
-import arrowUp from "@/public/arrowUp.svg";
 import Image from "next/image";
 
 const accordianMap = [
@@ -69,7 +66,9 @@ const Questions = () => {
   }>({ id: "", isOpen: false });
   return (
     <div className="w-full flex flex-col items-end text-right gap-y-[15px]">
-      <h2 className="text-[20px] custom-tablet:text-[30px] font-extrabold">سوالات متداول</h2>
+      <h2 className="text-[20px] custom-tablet:text-[30px] font-extrabold">
+        سوالات متداول
+      </h2>
       {accordianMap.map((item) => {
         return (
           <div
@@ -82,15 +81,23 @@ const Questions = () => {
             }}
           >
             <div className="flex flex-row-reverse justify-between">
-              <h3 className=" text-[16px] custom-tablet:text-[18px]">{item.qTitle}</h3>
+              <h3 className=" text-[16px] custom-tablet:text-[18px]">
+                {item.qTitle}
+              </h3>
               <Image
                 src={
                   accordState.id === item.id && accordState.isOpen
-                    ? arrowUp
-                    : arrowDown
+                    ? "/arrowUp.svg"
+                    : "/arrow.svg"
                 }
+                width={24}
+                height={24}
                 alt="arrow Icon"
-                className={`${accordState.id === item.id && accordState.isOpen ? "w-[15px] h-[15px]" : undefined}`}
+                className={`${
+                  accordState.id === item.id && accordState.isOpen
+                    ? "w-[15px] h-[15px]"
+                    : undefined
+                }`}
               />
             </div>
             <div

@@ -1,7 +1,6 @@
 import { ICryptoItem } from "@/types/types";
 import CryptoIconContainer from "../ui/CryptoIconContainer";
-import CurrencyValueInput from "../ui/currencyValueInput";
-import interchangeIcon from "@/public/interchangeIcon.svg";
+import CurrencyValueInput from "../ui/CurrencyValueInput";
 import Image from "next/image";
 import PersianTextEditor from "../ui/PersianTextEditor";
 
@@ -132,8 +131,10 @@ const TransactionContainer = ({ data }: { data: ICryptoItem }) => {
         <div className="w-full flex items-center">
           <button className="w-[40px] h-[40px] bg-interchange-button relative rounded-[50%]">
             <Image
-              src={interchangeIcon}
+              src={'/interchangeIcon.svg'}
               alt="interchange"
+              width={17}
+              height={16}
               className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]"
             />
           </button>

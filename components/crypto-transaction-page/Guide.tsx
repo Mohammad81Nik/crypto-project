@@ -1,5 +1,4 @@
 import Image from "next/image";
-import figure from "@/public/figure.png";
 
 const Guide = ({ currency_name }: { currency_name: string }) => {
   return (
@@ -17,8 +16,8 @@ const Guide = ({ currency_name }: { currency_name: string }) => {
         </button>
       </div>
       <Image
-        src={figure}
-        className="-scale-x-[1]"
+        src={"/figure.png"}
+        className="-scale-x-[1] lg:w-[300px] md:w-[280px] sm:w-[230px] w-[196px]"
         alt="figure"
         width={337}
         height={337}

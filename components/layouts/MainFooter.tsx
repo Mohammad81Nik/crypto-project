@@ -1,11 +1,5 @@
 import Image from "next/image";
-import companyLogo from "@/public/company-logo-white.svg";
 import Link from "next/link";
-import instagramLogo from "@/public/instagram-icon.svg";
-import facebookLogo from "@/public/facebook-icon.svg";
-import twitterLogo from "@/public/twitter-icon.svg";
-import linkedInLogo from "@/public/linkedin-icon.svg";
-import youtubeLogo from "@/public/youtube-icon.svg";
 import LogoContainer from "../ui/LogoContainer";
 
 const relatedLinksMap: { title: string; href: string }[] = [
@@ -31,11 +25,11 @@ const currencyInterchangeLinksMap: { title: string; href: string }[] = [
 ];
 
 const logoMap: { logoPath: string; alt: string }[] = [
-  { logoPath: instagramLogo, alt: "instagram logo" },
-  { logoPath: facebookLogo, alt: "facebook logo" },
-  { logoPath: twitterLogo, alt: "twitter logo" },
-  { logoPath: linkedInLogo, alt: "linkedIn logo" },
-  { logoPath: youtubeLogo, alt: "youtube logo" },
+  { logoPath: '/instagram-icon.svg', alt: "instagram logo" },
+  { logoPath: '/facebook-icon.svg', alt: "facebook logo" },
+  { logoPath: '/twitter-icon.svg', alt: "twitter logo" },
+  { logoPath: '/linkedin-icon.svg', alt: "linkedIn logo" },
+  { logoPath: '/youtube-icon.svg', alt: "youtube logo" },
 ];
 
 const MainFooter = () => {
@@ -43,7 +37,7 @@ const MainFooter = () => {
     <footer className="w-full h-[579px] sm:h-[370px] min-[670px]:h-[357px] lg:h-[402px] bg-footer-background text-white flex flex-col items-center text-right pl-[5%] sm:pl-[2%] xl:pl-[5%] pr-[5%] sm:pr-[2%] xl:pr-[5%] pt-[5%] cutsom-tablet:pt-[2.5%] gap-[2%] text-[10px] sm:text-[12px] lg:text-[16px]">
       <section className="w-full flex flex-col gap-y-[20px] sm:flex-row-reverse sm:gap-x-[5%]">
         <div className="w-full sm:w-[40%] lg:w-[30%] flex flex-col items-end gap-4">
-          <Image src={companyLogo} alt="company logo" />
+          <Image src={'/company-logo-white.svg'} alt="company logo" width={132} height={64} className="max-[768px]:w-[110px] max-[768px]:h-[53px]" />
           <p className="leading-[30px] ">
             راهکارهای پرداخت ری در سال 2009 فعالیت خود را در زمینه سیستم های
             پرداخت بین المللی با وبسایت wallet.ir آغاز کرد. ری پرداخت با نام

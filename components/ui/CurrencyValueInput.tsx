@@ -12,8 +12,10 @@ const CurrencyValueInput = () => {
       />
       <div className="w-[50%] flex flex-row-reverse gap-3 pr-2 border-r-2 border-r-input-bar-separator">
         <Image
-          src={iranCurrency}
+          src={"/iran-currancy.png"}
           alt="currency icon"
+          width={30}
+          height={30}
           className="w-[30px] h-[30px] rounded-[50%]"
         />
         <input
@@ -21,7 +23,7 @@ const CurrencyValueInput = () => {
           className="w-[70%] text-right outline-none bg-transparent text-text-color text-[12px] custom-tablet:text-[14px]"
           placeholder="تومان"
         />
-        <Image src={arrow} alt="arrow icon" />
+        <Image width={24} height={24} src={'/arrow.svg'} alt="arrow icon" />
       </div>
     </div>
   );

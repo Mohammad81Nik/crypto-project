@@ -2,7 +2,6 @@
 import TabButton from "../ui/TabButton";
 import { useState } from "react";
 import Image from "next/image";
-import arrowIcon from "@/public/arrowWhite.svg";
 
 const tabButtonsMap = [
   { title: "دیفای", id: "1" },
@@ -37,7 +36,7 @@ const Category = () => {
           } h-[47px] flex flex-row-reverse justify-between items-center`}
         >
           <span className="mr-8">{categoryAtive}</span>
-          <Image src={arrowIcon} alt="Arrow down" className="text-white ml-5" />
+          <Image src={'/arrowWhite.svg'} width={16} height={16} alt="Arrow down" className="text-white ml-5" />
         </button>
         <div
         id="accordian category"
