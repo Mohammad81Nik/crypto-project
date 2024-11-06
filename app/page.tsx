@@ -1,5 +1,7 @@
 
 
 export default function Home() {
-  return <div>سلام</div>;
+  return <div className="h-screen flex items-center justify-center">
+    <p>Work in Progress</p>
+  </div>;
 }

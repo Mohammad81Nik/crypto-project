@@ -60,7 +60,7 @@ const MainFooter = () => {
             <ul className="w-full h-[150px] flex flex-col flex-wrap-reverse items-start gap-[25px] lg:gap-[12px]">
               {relatedLinksMap.map((item) => {
                 return (
-                  <li>
+                  <li key={item.title}>
                     <Link href={item.href}>{item.title}</Link>
                   </li>
                 );
@@ -101,7 +101,7 @@ const MainFooter = () => {
         <hr className="border-[1px] border-line-color w-full sm:hidden" />
         <div className="w-full sm:w-[50%] flex justify-center sm:justify-start gap-[20px]">
           {logoMap.map((item) => {
-            return <LogoContainer logoPath={item.logoPath} alt={item.alt} />;
+            return <LogoContainer key={item.alt} logoPath={item.logoPath} alt={item.alt} />;
           })}
         </div>
       </section>

@@ -8,7 +8,7 @@ const LogoContainer = ({
   alt: string;
 }) => {
   return (
-    <div className="w-[31.91px] h-[31.91px] border-[1px] border-nav-background rounded-[50%] relative">
+    <div key={alt} className="w-[31.91px] h-[31.91px] border-[1px] border-nav-background rounded-[50%] relative">
       <Image
         width={15.31}
         height={15.31}
