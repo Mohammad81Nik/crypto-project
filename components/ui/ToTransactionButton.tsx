@@ -1,4 +1,5 @@
-import { redirect } from "next/navigation";
+"use client"
+import { useRouter } from "next/navigation";
 
 const ToTransactionButton = ({
   isUsedInAccordian,
@@ -7,10 +8,11 @@ const ToTransactionButton = ({
   isUsedInAccordian: boolean;
   currency_code: string;
 }) => {
+  const {push} = useRouter()
   return (
     <button
       onClick={() => {
-        redirect(`/crypto-price-list/${currency_code}`);
+        push(`/crypto-price-list/${currency_code}`)
       }}
       className={`h-[47px] bg-primary-color text-white text-[14px] font-extrabold rounded-[8px] border-2 border-primary-color transition-colors duration-500 hover:text-primary-color hover:bg-white ${
         isUsedInAccordian ? "w-full" : "w-[130px]"
