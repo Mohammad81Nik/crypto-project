@@ -5,7 +5,7 @@ import { use } from "react";
 import AdditionalInfo from "@/components/crypto-transaction-page/AdditionalInfo";
 import InitialInfo from "@/components/crypto-transaction-page/InitialInfo";
 import Guide from "@/components/crypto-transaction-page/Guide";
-import ChartSection from "@/components/crypto-price-list-page/ChartSection";
+import ChartSection from "@/components/crypto-transaction-page/ChartSection";
 import useCombineQuereis from "@/hooks/use-combine-queries";
 
 const page = ({ params }: { params: Promise<{ slug: string }> }) => {

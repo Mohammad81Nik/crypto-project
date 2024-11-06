@@ -50,7 +50,7 @@ const MainNavigation = () => {
               alt="trigger icon"
             />
             <div
-              className={`absolute w-full top-[92px] left-0 flex flex-col z-10 bg-slate-100 items-center text-center transition-all duration-500 overflow-hidden ${
+              className={`absolute w-full top-[64px] custom-mobile:top-[92px] left-0 flex flex-col z-10 bg-slate-100 opacity-95 items-center text-center transition-all duration-500 overflow-hidden ${
                 menuIsOpen ? "h-[240px]" : "h-0"
               }`}
             >

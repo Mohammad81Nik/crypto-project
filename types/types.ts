@@ -1,5 +1,3 @@
-import { ReactNode } from "react";
-
 export interface IRawData {
   items: ICryptoItem[];
   total_page: number;
