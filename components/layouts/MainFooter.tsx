@@ -76,6 +76,7 @@ const MainFooter = () => {
                 return (
                   <li className="w-fit">
                     <Link
+                    key={item.title}
                       href={item.href}
                       className={`${
                         index >= 4
