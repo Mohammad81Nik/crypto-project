@@ -35,6 +35,9 @@ importers:
       react-dom:
         specifier: ^19.0.0-rc-7c8e5e7a-20241101
         version: 19.0.0-rc-fb9a90fa48-20240614(react@19.0.0-rc-fb9a90fa48-20240614)
+      react-loading-skeleton:
+        specifier: ^3.5.0
+        version: 3.5.0(react@19.0.0-rc-fb9a90fa48-20240614)
     devDependencies:
       '@types/node':
         specifier: ^20
@@ -1548,6 +1551,11 @@ packages:
 
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
+
+  react-loading-skeleton@3.5.0:
+    resolution: {integrity: sha512-gxxSyLbrEAdXTKgfbpBEFZCO/P153DnqSCQau2+o6lNy1jgMRr2MmRmOzMmyrwSaSYLRB8g7b0waYPmUjz7IhQ==}
+    peerDependencies:
+      react: '>=16.8.0'
 
   react@19.0.0-rc-fb9a90fa48-20240614:
     resolution: {integrity: sha512-nvE3Gy+IOIfH/DXhkyxFVQSrITarFcQz4+shzC/McxQXEUSonpw2oDy/Wi9hdDtV3hlP12VYuDL95iiBREedNQ==}
@@ -3509,6 +3517,10 @@ snapshots:
       scheduler: 0.25.0-rc-fb9a90fa48-20240614
 
   react-is@16.13.1: {}
+
+  react-loading-skeleton@3.5.0(react@19.0.0-rc-fb9a90fa48-20240614):
+    dependencies:
+      react: 19.0.0-rc-fb9a90fa48-20240614
 
   react@19.0.0-rc-fb9a90fa48-20240614: {}
 

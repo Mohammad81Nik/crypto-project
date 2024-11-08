@@ -17,7 +17,8 @@
     "highcharts-react-official": "^3.2.1",
     "next": "^15.0.2",
     "react": "^19.0.0-rc-7c8e5e7a-20241101",
-    "react-dom": "^19.0.0-rc-7c8e5e7a-20241101"
+    "react-dom": "^19.0.0-rc-7c8e5e7a-20241101",
+    "react-loading-skeleton": "^3.5.0"
   },
   "devDependencies": {
     "@types/node": "^20",

@@ -16,6 +16,8 @@ import useProvideData from "@/hooks/use-provide-data";
 import useColumnDef from "@/hooks/use-column-def";
 import useDebounce from "@/hooks/useDebounce";
 import usePaginationButtons from "@/hooks/use-pagination-buttons";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 const CryptoTable = () => {
   /////////////////// STATE INITIALIZATION ///////////////////
@@ -104,7 +106,11 @@ const CryptoTable = () => {
                   return (
                     <th
                       key={header.id}
-                      className={`w-[30%] md:w-[16.6%] text-center md:text-right ${header.id === 'name' ? 'justify-center md:justify-end' : 'justify-center'} items-center ${
+                      className={`w-[30%] md:w-[16.6%] text-center md:text-right ${
+                        header.id === "name"
+                          ? "justify-center md:justify-end"
+                          : "justify-center"
+                      } items-center ${
                         header.id === "sell_irt_price" ||
                         header.id === "buy_irt_price" ||
                         header.id === "cta"
@@ -124,7 +130,32 @@ const CryptoTable = () => {
           })}
         </thead>
         <tbody>
-          {!isPending && !isError && (
+          {isFetching || isPending ? (
+            <>
+              {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((row) => {
+                return (
+                  <tr
+                    key={row.toString() + "isLoading"}
+                    className="w-full h-[81px] flex items-center"
+                  >
+                    <td className="relative w-full h-full flex items-center">
+                      <Skeleton
+                        height={71}
+                        style={{ display: "block" }}
+                        containerClassName="flex-1"
+                        highlightColor={`${
+                          row % 2 === 0 ? "#F7F7F7" : "#FFFFFF"
+                        }`}
+                      />
+                    </td>
+                  </tr>
+                );
+              })}
+            </>
+          ) : (
+            <></>
+          )}
+          {!isFetching && !isError && !isPlaceholderData && (
             <>
               {table.getRowModel().rows.map((row) => {
                 return (
@@ -147,7 +178,11 @@ const CryptoTable = () => {
                         return (
                           <td
                             key={cell.id}
-                            className={`w-[30%] min-w-0 truncate  text-center ${cell.column.id === 'name' ? "justify-center md:justify-end" : 'justify-center'} items-center p-2 custom-mobile:p-3  flex md:w-[16.6%] md:text-right ${
+                            className={`w-[30%] min-w-0 truncate  text-center ${
+                              cell.column.id === "name"
+                                ? "justify-center md:justify-end"
+                                : "justify-center"
+                            } items-center p-2 custom-mobile:p-3  flex md:w-[16.6%] md:text-right ${
                               cell.column.id === "buy_irt_price" ||
                               cell.column.id === "sell_irt_price" ||
                               cell.column.id === "cta"

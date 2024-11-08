@@ -6,4 +6,8 @@
   * {
     @apply box-border;
   }
+
+  br {
+    @apply hidden
+  }
 }
