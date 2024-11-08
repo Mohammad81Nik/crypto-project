@@ -6,7 +6,7 @@ const api = axios.create({
 
 export const fetchData = async <T>(page: number, searchParam: string) => {
   const res = await api.post("/list", {
-    page: page,
+    page: searchParam ? 1 : page,
     limit: 9,
     search: searchParam,
     currency_code: "",
