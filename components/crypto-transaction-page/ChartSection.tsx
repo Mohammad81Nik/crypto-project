@@ -36,7 +36,7 @@ const ChartSection = ({
     } else if (period === "3m") {
       return {
         originalUnit: period,
-        unit: "هفته",
+        unit: "ماه",
         value: "3",
       };
     } else if (period === "1y") {
