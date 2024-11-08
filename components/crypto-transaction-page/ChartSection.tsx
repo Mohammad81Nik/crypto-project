@@ -4,6 +4,8 @@ import { IChartData, IRawChartData, TChartPeriodData } from "@/types/types";
 import { fetchChartData } from "@/axios/axios";
 import { useState } from "react";
 import Chart from "./Chart";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 const ChartSection = ({
   periods,
@@ -92,6 +94,11 @@ const ChartSection = ({
             }
           })}
         </div>
+        {isPending && (<div className="w-full flex items-center justify-center h-[500px] gap-4">
+          <Skeleton style={{display: "block"}} circle={true} height={30} width={30} />
+          <Skeleton style={{display: "block"}} circle={true} height={30} width={30} />
+          <Skeleton style={{display: "block"}} circle={true} height={30} width={30} />
+        </div>)}
         {data && <Chart data={data.items} />}
       </div>
     </div>
